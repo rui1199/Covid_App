@@ -21,8 +21,17 @@ public class MainActivity extends AppCompatActivity {
         String nome = editTextNome.getText().toString();
 
         if (nome.length() == 0) {
-            editTextNome.setError("Preencha o nome");
+            editTextNome.setError("Preencha o nome.");
             editTextNome.requestFocus();
+            return;
+        }
+
+        EditText editTextTelefone = (EditText) findViewById(R.id.editTextTelefone);
+        String telefone = editTextTelefone.getText().toString();
+
+        if (telefone.length() < 9) {
+            editTextTelefone.setError("Telefone inválido. Preencha o telefone.");
+            editTextTelefone.requestFocus();
             return;
         }
 
