@@ -35,6 +35,33 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        String email = editTextEmail.getText().toString();
+
+        if (email.length() == 0) {
+            editTextEmail.setError("Preencha o email.");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        EditText editTextIdade = (EditText) findViewById(R.id.editTextIdade);
+        String strIdade = editTextIdade.getText().toString();
+
+        int idade;
+        try {
+            idade = Integer.parseInt(strIdade);
+        } catch (NumberFormatException e) {
+            editTextIdade.setError("Idade invalida. Preencha a idade.");
+            editTextIdade.requestFocus();
+            return;
+        }
+        
+        if (idade < 18) {
+            editTextIdade.setError("A idade tem de ser maior ou igual que 18.");
+            editTextIdade.requestFocus();
+            return;
+        }
+
         // Enviar a informação para outra atividade
         Intent intent = new Intent(this, MostraDadosActivity.class);
 
