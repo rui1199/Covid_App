@@ -9,6 +9,9 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_NOME = "NOME";
+    public static final String EXTRA_IDADE = "IDADE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             editTextIdade.requestFocus();
             return;
         }
-        
+
         if (idade < 18) {
             editTextIdade.setError("A idade tem de ser maior ou igual que 18.");
             editTextIdade.requestFocus();
@@ -64,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Enviar a informação para outra atividade
         Intent intent = new Intent(this, MostraDadosActivity.class);
+
+        intent.putExtra(EXTRA_NOME, nome);
+        intent.putExtra(EXTRA_IDADE, idade);
 
         startActivity(intent);
     }
