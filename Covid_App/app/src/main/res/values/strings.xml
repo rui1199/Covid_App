@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Covid_App</string>
+    <string name="covid_19">Covid-19</string>
+    <string name="questionario_covid_19">Questionario Covid-19</string>
+    <string name="sair">Sair</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="todo">TODO</string>
+</resources>
